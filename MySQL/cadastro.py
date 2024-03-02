@@ -6,18 +6,23 @@ conexao = mysql.connector.connect(
     password='12345',
     database='cadastro',
 )
+
 cursor = conexao.cursor()
+
+# -------------------------
 name = "Luiz"
 nascimento = "2005-07-20"
+profissao = "TI"
 sexo = "M"
 peso = 75.6
 altura = 2.0
 nacionalidade = "Brazil"
+# -------------------------
 
-comando = f'insert into cadastro.pessoas (name, nascimento, sexo, peso, altura, nacionalidade) values ("{name}", "{nascimento}", "{sexo}", {peso}, {altura}, "{nacionalidade}")'
+comando = f'insert into cadastro.pessoas (name, profissao, nascimento, sexo, peso, altura, nacionalidade) values ("{name}", "{profissao}", "{nascimento}", "{sexo}", {peso}, {altura}, "{nacionalidade}")'
 cursor.execute(comando)
 conexao.commit()
-# CRUD
+print("Commit bem Sucedido!")
 
 cursor.close()
 conexao.close()
